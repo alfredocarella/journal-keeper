@@ -1,0 +1,14 @@
+= Journal
+:Author:    Alfredo Carella
+:Email:     <alfredocarella@gmail.com>
+:Date:      2016-04-04
+:Revision:  1.0 - Preliminary version
+:imagesdir: ./images
+:sourcedir: ./sources
+:icons: font
+:source-highlighter: coderay
+:coderay-linenums-mode: table
+:stem: latexmath
+:toc:
+:toclevels: 2
+:toc-title: Table of contents
