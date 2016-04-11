@@ -45,43 +45,6 @@ def create_main_index(base_path: str, file_name: str):
     os.system("asciidoctor {0}/{1}".format(base_path, file_name))
 
 
-# def create_main_index(base_path: str, file_name: str, start_date: datetime):
-#
-#     # Insert header at the beginning
-#     with open(os.path.join(base_path, "header.adoc"), "r") as header_file:
-#         journal_header = header_file.read()
-#
-#     # Add journal content
-#     now = datetime.now()
-#     date = start_date
-#     with open(os.path.join(base_path, file_name), "w") as f:
-#         f.write(journal_header)
-#         while date < now:
-#             year_dir = os.path.join(base_path, str(date.year))
-#             if date.day == date.month == 1 and os.path.isdir(year_dir) and os.listdir(year_dir):
-#                 f.write("\n== {0}\n".format(date.year))
-#
-#             month_dir = os.path.join(base_path, str(date.year), str(date.month).zfill(2))
-#             if date.day == 1 and os.path.isdir(month_dir) and os.listdir(month_dir):
-#                 f.write("\n=== {0}\n".format(date.strftime("%B").capitalize()))
-#
-#             day_path_rel = os.path.join(str(date.year), str(date.month).zfill(2), str(date.day).zfill(2) + ".txt")
-#             day_path_abs = os.path.join(base_path, day_path_rel)
-#             if os.path.isfile(day_path_abs):
-#                 with open(day_path_abs) as day_file:
-#                     day_entry = day_file.read()
-#                     if day_entry == "":
-#                         os.remove(day_path_abs)
-#                     else:
-#                         f.write("\n==== {0} {1}\n".format(date.strftime("%A").capitalize(), date.strftime("%x")))
-#                         f.write("\n" + day_entry + "\n")
-#                         # f.write("\ninclude::" + day_path_rel + "[]\n")
-#             date += timedelta(1)
-#
-#     # Run Asciidoctor on .adoc file
-#     os.system("asciidoctor {0}/{1}".format(base_path, file_name))
-#
-#
 def open_journal(base_path: str, editing_app: "editing app exec"="vim"):
     now = datetime.now()
     today_path = os.path.join(base_path, str(now.year), str(now.month).zfill(2))
