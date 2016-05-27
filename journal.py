@@ -4,7 +4,6 @@ from datetime import date, datetime
 # import locale
 import sys
 
-
 def create_main_index(base_path: str, file_name: str):
 
     # Insert header at the beginning
@@ -44,7 +43,6 @@ def create_main_index(base_path: str, file_name: str):
     # Run Asciidoctor on .adoc file
     os.system("asciidoctor {0}/{1}".format(base_path, file_name))
 
-
 def open_journal(base_path: str, editing_app: "editing app exec"="vim"):
     now = datetime.now()
     today_path = os.path.join(base_path, str(now.year), str(now.month).zfill(2))
@@ -62,12 +60,11 @@ def open_journal(base_path: str, editing_app: "editing app exec"="vim"):
 if __name__ == "__main__":
     import platform
     if platform.system() == "Windows":
-        editor = '"C:\\Program Files (x86)\\Notepad++\\notepad++.exe"'
-        # editor = '"C:\\Program Files (x86)\\Vim\\vim74\\vim.exe"'
+        # editor = '"C:\\Program Files (x86)\\Notepad++\\notepad++.exe"'
+        editor = '"C:\\Program Files (x86)\\Vim\\vim74\\vim.exe"'
     else:
         editor = sys.argv[1] if len(sys.argv) > 1 else "vim"
     # locale.setlocale(locale.LC_ALL, 'es_ES')
-    print(editor)
     journal_path = os.path.dirname(os.path.realpath(__file__))
     index_name = "journal.adoc"
 
